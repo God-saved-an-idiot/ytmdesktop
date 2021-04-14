@@ -9,11 +9,11 @@ This is a fork of `ytmdesktop/ytmdesktop` with **ad blocking** and **no 3rd-part
 
 **1. Go to the Actions tab of this repository, and select the "Build" workflow.**
 
-![image](readme-screenshots/1.png)
+![image](readme_screenshots/1.png)
 
 **2. Click on the first item that has a green check mark, and scroll down to Artifacts. Click on the one that matches your OS.**
 
-![image](readme-screenshots/2.png)
+![image](readme_screenshots/2.png)
 
 ## Contributing
 
