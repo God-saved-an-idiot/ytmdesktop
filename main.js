@@ -12,6 +12,7 @@ const {
     screen,
     shell,
     dialog,
+    session
 } = require('electron')
 const path = require('path')
 const isDev = require('electron-is-dev')
@@ -19,6 +20,12 @@ const ClipboardWatcher = require('electron-clipboard-watcher')
 const electronLocalshortcut = require('electron-localshortcut')
 const electronLog = require('electron-log')
 const os = require('os')
+
+const { ElectronBlocker } = require("@cliqz/adblocker-electron");
+const fetch = require("cross-fetch");
+ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then(blocker => {
+  blocker.enableBlockingInSession(session.defaultSession);
+});
 
 const { calcYTViewSize } = require('./src/utils/calcYTViewSize')
 const { isWindows, isMac, isLinux } = require('./src/utils/systemInfo')
@@ -2001,8 +2008,3 @@ ipcMain.handle('get-audio-output-list', (event, someArgument) => {
 const mediaControl = require('./src/providers/mediaProvider')
 const tray = require('./src/providers/trayProvider')
 const updater = require('./src/providers/updateProvider')
-const analytics = require('./src/providers/analyticsProvider')
-
-analytics.setEvent('main', 'start', 'v' + app.getVersion(), app.getVersion())
-analytics.setEvent('main', 'os', process.platform, process.platform)
-analytics.setScreen('main')
