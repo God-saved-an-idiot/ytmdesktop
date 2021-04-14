@@ -25,7 +25,7 @@ const { ElectronBlocker } = require("@cliqz/adblocker-electron");
 const fetch = require("cross-fetch");
 ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then(blocker => {
   blocker.enableBlockingInSession(session.defaultSession);
-});
+}); 
 
 const { calcYTViewSize } = require('./src/utils/calcYTViewSize')
 const { isWindows, isMac, isLinux } = require('./src/utils/systemInfo')
