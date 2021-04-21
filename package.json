@@ -41,7 +41,6 @@
         "electron-canvas-to-buffer": "^2.0.0",
         "@cliqz/adblocker-electron": "^1.9.2",
         "electron-clipboard-watcher": "^1.0.1",
-        "electron-google-analytics": "^1.0.0",
         "electron-is-dev": "^1.2.0",
         "electron-localshortcut": "^3.2.1",
         "electron-log": "^4.2.2",
