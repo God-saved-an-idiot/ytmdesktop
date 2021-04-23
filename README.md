@@ -7,7 +7,7 @@ This is a fork of `ytmdesktop/ytmdesktop` with **ad blocking** and **no 3rd-part
 
 ## Downloads
 
-**From Releases**
+**From Releases (easiest; recommended)**
 
 Download `ytmdesktop` from [here](https://github.com/SpheeresX/ytmdesktop/releases).
 
