@@ -2,6 +2,7 @@ name: Release
 
 on:
   - push
+  workflow_dispatch:
 
 jobs:
   release:
@@ -15,3 +16,14 @@ jobs:
         name: dist-merged  
     - name: Display structure of downloaded files
       run: ls -R
+    - name: Release
+      uses: "marvinpinto/action-automatic-releases@latest"
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "latest"
+        prerelease: true
+        title: "ytmdesktop"
+        files: |
+          *.AppImage
+          *.exe
+          *.dmg
