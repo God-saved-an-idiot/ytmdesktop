@@ -99,13 +99,6 @@ createCustomAppDir()
 createCustomCSSDir()
 createCustomCSSPageFile()
 
-if (settingsProvider.get('has-updated') == true) {
-    setTimeout(() => {
-        writeLog({ type: 'info', data: 'YTMDesktop updated' })
-        ipcMain.emit('window', { command: 'show-changelog' })
-    }, 2000)
-}
-
 if (
     isWindows() &&
     os.release().startsWith('10.') &&
@@ -2007,4 +2000,3 @@ ipcMain.handle('get-audio-output-list', (event, someArgument) => {
 // code. You can also put them in separate files and require them here.
 const mediaControl = require('./src/providers/mediaProvider')
 const tray = require('./src/providers/trayProvider')
-const updater = require('./src/providers/updateProvider')

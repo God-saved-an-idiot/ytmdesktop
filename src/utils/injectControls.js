@@ -362,30 +362,6 @@ function createTopRightContent() {
                     .classList.add('hide')
             }
         })
-
-        // UPDATE
-        const elementUpdate = document.createElement('i')
-        elementUpdate.id = 'ytmd_update'
-        elementUpdate.classList.add(
-            'material-icons',
-            'green-text',
-            'pointer',
-            'shine',
-            'ytmd-icons',
-            'hide'
-        )
-        elementUpdate.style.color = '#4CAF50'
-        elementUpdate.innerText = 'arrow_downward'
-
-        elementUpdate.addEventListener('click', function () {
-            ipcRenderer.send('btn-update-clicked', true)
-        })
-
-        right_content.prepend(elementUpdate)
-
-        ipcRenderer.on('downloaded-new-update', function (e, data) {
-            document.getElementById('ytmd_update').classList.remove('hide')
-        })
     } catch (err) {
         ipcRenderer.send('log', {
             type: 'warn',
