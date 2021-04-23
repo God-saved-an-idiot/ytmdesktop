@@ -7,6 +7,12 @@ This is a fork of `ytmdesktop/ytmdesktop` with **ad blocking** and **no 3rd-part
 
 ## Downloads
 
+**From Releases**
+
+Download `ytmdesktop` from [here](https://github.com/SpheeresX/ytmdesktop/releases).
+
+**From Actions**
+
 **1. Go to the Actions tab of this repository, and select the "Build" workflow.**
 
 ![image](readme_screenshots/1.png)

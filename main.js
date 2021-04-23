@@ -959,10 +959,6 @@ function createWindow() {
         }
     })
 
-    ipcMain.on('btn-update-clicked', () => {
-        updater.quitAndInstall()
-    })
-
     ipcMain.on('window', (dataMain, dataRenderer) => {
         let command, value
 
@@ -1738,14 +1734,6 @@ if (!gotTheLock) {
             if (settingsProvider.get('settings-shiny-tray'))
                 tray.updateImage(payload)
         })
-
-        if (!isDev) {
-            updater.checkUpdate(mainWindow, view)
-
-            setInterval(function () {
-                updater.checkUpdate(mainWindow, view)
-            }, 24 * 60 * 60 * 1000)
-        }
 
         ipcMain.emit('ready', app)
     })
