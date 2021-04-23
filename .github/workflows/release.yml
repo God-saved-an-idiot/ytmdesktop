@@ -1,0 +1,16 @@
+name: Release
+
+on:
+  - push
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - uses: actions/download-artifact@v2
+        
+    - name: Display structure of downloaded files
+      run: ls -R
