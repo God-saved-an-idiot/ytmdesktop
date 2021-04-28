@@ -21,12 +21,6 @@ const electronLocalshortcut = require('electron-localshortcut')
 const electronLog = require('electron-log')
 const os = require('os')
 
-const { ElectronBlocker } = require("@cliqz/adblocker-electron");
-const fetch = require("cross-fetch");
-ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then(blocker => {
-  blocker.enableBlockingInSession(session.defaultSession);
-}); 
-
 const { calcYTViewSize } = require('./src/utils/calcYTViewSize')
 const { isWindows, isMac, isLinux } = require('./src/utils/systemInfo')
 const { checkWindowPosition, doBehavior } = require('./src/utils/window')
@@ -1988,3 +1982,16 @@ ipcMain.handle('get-audio-output-list', (event, someArgument) => {
 // code. You can also put them in separate files and require them here.
 const mediaControl = require('./src/providers/mediaProvider')
 const tray = require('./src/providers/trayProvider')
+
+// Adblocking
+const { ElectronBlocker } = require("@cliqz/adblocker-electron");
+const fetch = require("cross-fetch");
+ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then(blocker => {
+  blocker.enableBlockingInSession(session.defaultSession);
+});
+
+// youtube-non-stop
+fs.readFile('./src/utils/youtube-non-stop/autoconfirm.js', (err, data) => {
+    if (err) return console.log('Failed to load youtube-non-stop');
+    mainWindow.webContents.executeJavaScript(data);
+});
