@@ -1992,7 +1992,7 @@ ElectronBlocker.fromPrebuiltAdsAndTracking(fetch).then(blocker => {
 
 // youtube-non-stop
 const fs = require('fs');
-fs.readFile('./src/utils/youtube-non-stop/autoconfirm.js', (err, data) => {
+fs.readFile('./src/utils/youtube-non-stop/autoconfirm.js', 'utf-8', (err, data) => {
     if (err) return console.log('Failed to load youtube-non-stop');
     mainWindow.webContents.executeJavaScript(data);
 });
